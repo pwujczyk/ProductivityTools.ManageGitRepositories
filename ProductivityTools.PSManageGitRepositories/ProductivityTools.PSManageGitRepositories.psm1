@@ -1,16 +1,26 @@
 function Push-GitRepositories([string] $Directory)
 {
-	$directories=Get-ChildItem $Directory   | ?{ $_.PSIsContainer }
-	foreach($directory in $directories)
+	$directories=Get-ChildItem $Directory | ?{ $_.PSIsContainer }
+	foreach($dir in $directories)
 	{
-		cd $directory.FullName
+		$directoryPath=$dir.FullName
+		cd $directoryPath
 		if($(Test-Path ".git") -eq $true)
 		{
-			git checkout -b "AutoCommitBranch"
-			git add .
-			git commit -m "Automatic Commit"
-			$remote=git remote
-			git push --all $remote
+			$status=git status -u
+			if ($status -contains "nothing to commit, working tree clean")
+			{
+				Write-Host "Git repository $directoryPath - working tree clean" -ForegroundColor Green
+			}
+			else
+			{
+				Write-Host "Git repository $directoryPath - dirty, pushing" -ForegroundColor Red
+				git checkout -b "AutoCommitBranch"
+				git add .
+				git commit -m "Automatic Commit"
+				$remote=git remote
+				git push --all $remote
+			}		
 		}
 	}	
 }
@@ -34,7 +44,7 @@ function Pull-GitRepositories([string] $Directory)
 function Get-GitRepositoriesStatus([string] $Directory)
 {
 	Push-Location 
-	$directories=Get-ChildItem $directory   | ?{ $_.PSIsContainer }
+	$directories=Get-ChildItem $Directory   | ?{ $_.PSIsContainer }
 	foreach($dir in $directories)
 	{
 		$directoryPath=$dir.FullName
