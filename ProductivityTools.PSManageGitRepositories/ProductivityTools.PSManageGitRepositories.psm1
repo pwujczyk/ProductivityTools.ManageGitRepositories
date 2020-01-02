@@ -25,14 +25,39 @@ function Push-GitRepositories([string] $Directory)
 	}	
 }
 
-function Pull-GitRepositories([string] $Directory)
+function Get-AutoCommitRepositories([string] $Directory)
 {
 	$directories=Get-ChildItem $Directory   | ?{ $_.PSIsContainer }
-	#$directories | ForEach-Object - {
 	foreach ($dir in $directories)
 	{
 		$directoryPath=$dir.FullName
 		Write-Host "Checking repository $directoryPath"
+		
+		cd $directoryPath
+		if($(Test-Path ".git") -eq $true)
+		{
+			$branches=git branch -a
+			
+			if ([bool]($branches -like "*AutoCommitBranch*"))
+			{
+				Write-Host "Git repository $directoryPath has AutoCommitBranch" -ForegroundColor Red 
+			}
+			else
+			{
+				Write-Host "Git repository $directoryPath - working tree clean" -ForegroundColor Green
+			}
+		}
+	}	
+}
+
+function Pull-GitRepositories([string] $Directory)
+{
+	$directories=Get-ChildItem $Directory   | ?{ $_.PSIsContainer }
+	foreach ($dir in $directories)
+	{
+		$directoryPath=$dir.FullName
+		Write-Host "Checking repository $directoryPath"
+		
 		cd $directoryPath
 		if($(Test-Path ".git") -eq $true)
 		{
@@ -68,3 +93,4 @@ function Get-GitRepositoriesStatus([string] $Directory)
 Export-ModuleMember Push-GitRepositories
 Export-ModuleMember Pull-GitRepositories
 Export-ModuleMember Get-GitRepositoriesStatus
+Export-ModuleMember Get-AutoCommitRepositories
