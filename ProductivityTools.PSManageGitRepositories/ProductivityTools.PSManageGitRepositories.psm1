@@ -25,7 +25,7 @@ function Push-GitRepositories([string] $Directory)
 	}	
 }
 
-function Get-AutoCommitRepositories([string] $Directory)
+function Get-AutoCommitBranchRepositories([string] $Directory)
 {
 	$directories=Get-ChildItem $Directory   | ?{ $_.PSIsContainer }
 	foreach ($dir in $directories)
@@ -93,4 +93,4 @@ function Get-GitRepositoriesStatus([string] $Directory)
 Export-ModuleMember Push-GitRepositories
 Export-ModuleMember Pull-GitRepositories
 Export-ModuleMember Get-GitRepositoriesStatus
-Export-ModuleMember Get-AutoCommitRepositories
+Export-ModuleMember Get-AutoCommitBranchRepositories
