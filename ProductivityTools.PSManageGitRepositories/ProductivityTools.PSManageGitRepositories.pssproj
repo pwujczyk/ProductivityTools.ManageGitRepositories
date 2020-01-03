@@ -29,7 +29,6 @@
   <ItemGroup>
     <Compile Include="ProductivityTools.PSManageGitRepositories.psd1" />
     <Compile Include="ProductivityTools.PSManageGitRepositories.psm1" />
-    <Compile Include="ProductivityTools.PSManageGitRepositories.tests.ps1" />
     <Compile Include="Runner.ps1" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
