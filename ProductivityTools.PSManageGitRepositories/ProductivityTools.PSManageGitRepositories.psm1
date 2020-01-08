@@ -19,20 +19,20 @@ function Push-GitRepositories([string] $Directory)
 				git add .
 				git commit -m "Automatic Commit"
 				$remote=git remote
+				git push -u $remote AutoCommitBranch #this needs to be done to make branch track remote
 				git push --all $remote
 			}		
 		}
 	}	
 }
 
-function Get-AutoCommitBranchRepositories([string] $Directory)
+function Get-AutoCommitRepositories([string] $Directory)
 {
 	$directories=Get-ChildItem $Directory   | ?{ $_.PSIsContainer }
 	foreach ($dir in $directories)
 	{
 		$directoryPath=$dir.FullName
-		Write-Host "Checking repository $directoryPath"
-		
+
 		cd $directoryPath
 		if($(Test-Path ".git") -eq $true)
 		{
@@ -44,7 +44,7 @@ function Get-AutoCommitBranchRepositories([string] $Directory)
 			}
 			else
 			{
-				Write-Host "Git repository $directoryPath - working tree clean" -ForegroundColor Green
+				Write-Host "Git repository $directoryPath - no AutoCommitBranch exists" -ForegroundColor Green
 			}
 		}
 	}	
@@ -93,4 +93,4 @@ function Get-GitRepositoriesStatus([string] $Directory)
 Export-ModuleMember Push-GitRepositories
 Export-ModuleMember Pull-GitRepositories
 Export-ModuleMember Get-GitRepositoriesStatus
-Export-ModuleMember Get-AutoCommitBranchRepositories
+Export-ModuleMember Get-AutoCommitRepositories
