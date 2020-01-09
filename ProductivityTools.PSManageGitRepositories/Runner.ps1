@@ -2,9 +2,10 @@ clear
 
 cd $PSScriptRoot
 Import-Module .\ProductivityTools.PSManageGitRepositories.psm1 -Force
-#Get-GitStatus d:\GitHub
+Get-GitRepositoriesStatus d:\GitHub
 #Pull-GitRepositories d:\GitHub
 
 #Push-GitRepositories d:\GitHub
-
-Get-AutoCommitRepositories d:\GitHub
+#Work
+#Get-AutoCommitRepositories d:\GitHub
+Push-GitRepository 
