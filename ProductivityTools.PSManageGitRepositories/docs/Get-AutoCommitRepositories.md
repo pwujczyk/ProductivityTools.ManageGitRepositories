@@ -26,12 +26,12 @@ It scans provided directory, founds git directories and check if AutoCommitBranc
 PS C:\> Get-AutoCommitRepositories -Directory D:\GitHub\
 ```
 
-This will look for all directories in D:\GitHub path. For each directori it will check if it is git repository and it will show information if AutoCommitBranch exists or not.
+This will look for all directories in D:\GitHub path. For each directory it will check if it is git repository and it will show information if AutoCommitBranch exists or not.
 
 ## PARAMETERS
 
 ### -Directory
-Direcory in which git repositories should be looked for.
+Directory in which git repositories should be looked for.
 
 ```yaml
 Type: String

@@ -18,19 +18,17 @@ function CheckIfGitRepository()
 	}
 }
 
-#function Work()
-#{
-#	PerformSingleActiononDirectory "d:\github"  {Param($x) Push-GitRepository $x}
-#}
-
-
-function Push-GitRepository([string] $Directory)
+function Push-GitRepository()
 {
+	Param(
+	[Parameter(Mandatory=$true)]
+	[string] $Directory
+	)
+
 	Push-Location
 	cd $Directory
 	CheckIfGitRepository
-	$status=git status -u
-	Write-Host "XXXXXXXXXXX"
+	$status=git status
 	if ($($status -Like "*Your branch is ahead*").Count -gt 0)
 	{
 		Write-Host "Git repository $directoryPath - ahead of, pushing" -ForegroundColor Red
@@ -57,49 +55,46 @@ function Push-GitRepository([string] $Directory)
 function Push-GitRepositories([string] $Directory)
 {
 	PerformSingleActiononDirectory $Directory  {Param($x) Push-GitRepository $x}
-	
-#	Push-Location
-#	$directories=Get-ChildItem $Directory | ?{ $_.PSIsContainer }
-#	foreach($dir in $directories)
-#	{
-#		$directoryPath=$dir.FullName
-#		Push-GitRepository $directoryPath
-#	}	
-#	Pop-Location
 }
 
-function Get-AutoCommitRepository([string] $Directory)
+function Get-AutoCommitRepository()
 {
-	cd $directoryPath
+	Param(
+	[Parameter(Mandatory=$true)]
+	[string] $Directory
+	)
+	
+	cd $Directory
 	CheckIfGitRepository
 	$branches=git branch -a
 	
 	if ([bool]($branches -like "*AutoCommitBranch*"))
 	{
-		Write-Host "Git repository $directoryPath has AutoCommitBranch" -ForegroundColor Red 
+		Write-Host "Git repository '$Directory' has AutoCommitBranch" -ForegroundColor Red 
 	}
 	else
 	{
-		Write-Host "Git repository $directoryPath - no AutoCommitBranch exists" -ForegroundColor Green
+		Write-Host "Git repository '$Directory' - no AutoCommitBranch exists" -ForegroundColor Green
 	}
 }
 
-function Get-AutoCommitRepositories([string] $Directory)
+function Get-AutoCommitRepositories()
 {
+	Param(
+	[Parameter(Mandatory=$true)]
+	[string] $Directory
+	)
+	
 	PerformSingleActiononDirectory $Directory  {Param($x) Get-AutoCommitRepository $x}
-#	Push-Location
-#	$directories=Get-ChildItem $Directory   | ?{ $_.PSIsContainer }
-#	foreach ($dir in $directories)
-#	{
-#		$directoryPath=$dir.FullName
-#
-#		
-#	}	
-#	Pop-Location
 }
 
-function Pull-GitRepository([string]$Directory)
+function Pull-GitRepository()
 {
+	Param(
+	[Parameter(Mandatory=$true)]
+	[string] $Directory
+	)
+
 	Push-Location
 	cd $Directory
 	CheckIfGitRepository
@@ -118,17 +113,16 @@ function Pull-GitRepository([string]$Directory)
 
 function Pull-GitRepositories([string] $Directory)
 {
-	PerformSingleActiononDirectory $Directory  {Param($x) Pull-GitRepository $x}
-#	$directories=Get-ChildItem $Directory   | ?{ $_.PSIsContainer }
-#	foreach ($dir in $directories)
-#	{
-#		$directoryPath=$dir.FullName
-#		Pull-GitRepository $directoryPath
-#	}	
+	PerformSingleActiononDirectory $Directory  {Param($x) Pull-GitRepository $x}	
 }
 
-function Get-GitRepositoryStatus([string] $Directory)
+function Get-GitRepositoryStatus()
 {
+	Param(
+	[Parameter(Mandatory=$true)]
+	[string] $Directory
+	)
+	
 	Push-Location
 	cd $Directory
 	CheckIfGitRepository
@@ -146,26 +140,6 @@ function Get-GitRepositoryStatus([string] $Directory)
 function Get-GitRepositoriesStatus([string] $Directory)
 {
 	PerformSingleActiononDirectory $Directory  {Param($x) Get-GitRepositoryStatus $x}
-#	Push-Location 
-#	$directories=Get-ChildItem $Directory   | ?{ $_.PSIsContainer }
-#	foreach($dir in $directories)
-#	{
-#		$directoryPath=$dir.FullName
-#		cd $directoryPath
-#		if($(Test-Path ".git") -eq $true)
-#		{
-#			$status=git status -u
-#			if ($status -contains "nothing to commit, working tree clean")
-#			{
-#				Write-Host "Git repository $directoryPath - working tree clean" -ForegroundColor Green
-#			}
-#			else
-#			{
-#				Write-Host "Git repository $directoryPath - dirty" -ForegroundColor Red
-#			}
-#		}
-#	}	
-#	Pop-Location
 }
 
 Export-ModuleMember Push-GitRepository
