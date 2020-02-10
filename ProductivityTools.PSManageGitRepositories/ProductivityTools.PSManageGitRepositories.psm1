@@ -31,13 +31,13 @@ function Push-GitRepository([string] $Directory)
 	CheckIfGitRepository
 	$status=git status -u
 	Write-Host "XXXXXXXXXXX"
-	if ($status -contains "Your branch is ahead of")
+	if ($($status -Like "*Your branch is ahead*").Count -gt 0)
 	{
 		Write-Host "Git repository $directoryPath - ahead of, pushing" -ForegroundColor Red
 		git push --all $remote
 	}
 	
-	if ($status -contains "nothing to commit, working tree clean")
+	if ($($status -Like "*nothing to commit, working tree clean*").Count -gt 0)
 	{
 		Write-Host "Git repository $directoryPath - working tree clean" -ForegroundColor Green
 	}
