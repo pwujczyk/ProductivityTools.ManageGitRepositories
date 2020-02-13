@@ -8,7 +8,7 @@ schema: 2.0.0
 # Get-GitRepositoriesStatus
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+It checks if repositories in directory have something to commit
 
 ## SYNTAX
 
@@ -17,21 +17,21 @@ Get-GitRepositoriesStatus [[-Directory] <String>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+It opens directories in provided path, checks if it git repository and checks if repository has something to commit.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Get-GitRepositoriesStatus -Directory D:\GitHub\
 ```
 
-{{ Add example description here }}
+It will iterate through directories in d:\GitHub and for each directory it will check if something to commit exists.
 
 ## PARAMETERS
 
 ### -Directory
-{{ Fill Directory Description }}
+Directory which should contain other directories with git repositories.
 
 ```yaml
 Type: String

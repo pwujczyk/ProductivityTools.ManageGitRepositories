@@ -8,7 +8,7 @@ schema: 2.0.0
 # Pull-GitRepositories
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Performs git pull for directories found under given directory.
 
 ## SYNTAX
 
@@ -17,21 +17,21 @@ Pull-GitRepositories [[-Directory] <String>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+It iterates through list of directories under directory provided and invokes git pull for each repository.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Pull-GitRepositories D:\GitHub\
 ```
 
-{{ Add example description here }}
+It will open GitHub directory and for each directory inside will invoke git pull
 
 ## PARAMETERS
 
 ### -Directory
-{{ Fill Directory Description }}
+Directory which contains git repositories.
 
 ```yaml
 Type: String

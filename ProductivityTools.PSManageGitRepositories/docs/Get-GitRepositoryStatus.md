@@ -8,7 +8,7 @@ schema: 2.0.0
 # Get-GitRepositoryStatus
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Check if given repository something is to be commited.
 
 ## SYNTAX
 
@@ -17,21 +17,21 @@ Get-GitRepositoryStatus [[-Directory] <String>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+It opens the directory and checks if in given repository some changes were done which should be commited.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Get-GitRepositoryStatus D:\GitHub\ProductivityTools.ConnectionString\
 ```
 
-{{ Add example description here }}
+It will check if in the D:\GitHub\ProductivityTools.ConnectionString\ changes were done. 
 
 ## PARAMETERS
 
 ### -Directory
-{{ Fill Directory Description }}
+Directory in which checkup should be done.
 
 ```yaml
 Type: String

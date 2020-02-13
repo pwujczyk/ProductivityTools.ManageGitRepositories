@@ -137,8 +137,12 @@ function Get-GitRepositoryStatus()
 	}
 }
 
-function Get-GitRepositoriesStatus([string] $Directory)
+function Get-GitRepositoriesStatus()
 {
+	Param(
+	[Parameter(Mandatory=$true)]
+	[string] $Directory
+	)
 	PerformSingleActiononDirectory $Directory  {Param($x) Get-GitRepositoryStatus $x}
 }
 
