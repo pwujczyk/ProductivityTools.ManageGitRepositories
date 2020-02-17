@@ -8,30 +8,30 @@ schema: 2.0.0
 # Pull-GitRepository
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+It performs git pull for given directory.
 
 ## SYNTAX
 
 ```
-Pull-GitRepository [[-Directory] <String>]
+Pull-GitRepository [[-Directory] <String>] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+It performs git pull for given directory.
 
 ## EXAMPLES
 
 ### Example 1
 ```powershell
-PS C:\> {{ Add example code here }}
+PS C:\> Pull-GitRepository D:\GitHub\ProductivityTools.ConnectionString\
 ```
 
-{{ Add example description here }}
+It will open D:\GitHub\ProductivityTools.ConnectionString\ checks if directory is git repository, perform git pull and show message.
 
 ## PARAMETERS
 
 ### -Directory
-{{ Fill Directory Description }}
+Directory
 
 ```yaml
 Type: String
@@ -44,6 +44,9 @@ Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
+
+### CommonParameters
+This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction, and -WarningVariable. For more information, see [about_CommonParameters](http://go.microsoft.com/fwlink/?LinkID=113216).
 
 ## INPUTS
 
