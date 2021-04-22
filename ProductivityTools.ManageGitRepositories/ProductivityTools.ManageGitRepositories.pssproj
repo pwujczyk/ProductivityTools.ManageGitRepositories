@@ -6,7 +6,8 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>MyApplication</RootNamespace>
     <AssemblyName>MyApplication</AssemblyName>
-    <Name>ProductivityTools.PSManageGitRepositories</Name>
+    <Name>ProductivityTools.ManageGitRepositories</Name>
+    <ProjectHome />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -27,8 +28,8 @@
   </PropertyGroup>
   <ItemGroup />
   <ItemGroup>
-    <Compile Include="ProductivityTools.PSManageGitRepositories.psd1" />
-    <Compile Include="ProductivityTools.PSManageGitRepositories.psm1" />
+    <Compile Include="ProductivityTools.ManageGitRepositories.psd1" />
+    <Compile Include="ProductivityTools.ManageGitRepositories.psm1" />
     <Compile Include="Runner.ps1" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
