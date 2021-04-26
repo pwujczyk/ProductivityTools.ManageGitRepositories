@@ -20,18 +20,18 @@ Module also allow me to update all repositories from given directory.
 Check out detailed description of the commands below.
 
 
-[Get-AutoCommitRepositories](./ProductivityTools.PSManageGitRepositories/docs/Get-AutoCommitRepositories.md)
+[Get-AutoCommitRepositories](./ProductivityTools.ManageGitRepositories/docs/Get-AutoCommitRepositories.md)
 
-[Get-AutoCommitRepository](./ProductivityTools.PSManageGitRepositories/docs/Get-AutoCommitRepository.md)
+[Get-AutoCommitRepository](./ProductivityTools.ManageGitRepositories/docs/Get-AutoCommitRepository.md)
 
-[Get-GitRepositoriesStatus](./ProductivityTools.PSManageGitRepositories/docs/Get-GitRepositoriesStatus.md)
+[Get-GitRepositoriesStatus](./ProductivityTools.ManageGitRepositories/docs/Get-GitRepositoriesStatus.md)
 
-[Get-GitRepositoryStatus](./ProductivityTools.PSManageGitRepositories/docs/Get-GitRepositoryStatus.md)
+[Get-GitRepositoryStatus](./ProductivityTools.ManageGitRepositories/docs/Get-GitRepositoryStatus.md)
 
-[Pull-GitRepositories](./ProductivityTools.PSManageGitRepositories/docs/Pull-GitRepositories.md)
+[Pull-GitRepositories](./ProductivityTools.ManageGitRepositories/docs/Pull-GitRepositories.md)
 
-[Pull-GitRepository](./ProductivityTools.PSManageGitRepositories/docs/Pull-GitRepository.md)
+[Pull-GitRepository](./ProductivityTools.ManageGitRepositories/docs/Pull-GitRepository.md)
 
-[Push-GitRepositories](./ProductivityTools.PSManageGitRepositories/docs/Push-GitRepositories.md)
+[Push-GitRepositories](./ProductivityTools.ManageGitRepositories/docs/Push-GitRepositories.md)
 
-[Push-GitRepository](./ProductivityTools.PSManageGitRepositories/docs/Push-GitRepository.md)
+[Push-GitRepository](./ProductivityTools.ManageGitRepositories/docs/Push-GitRepository.md)
