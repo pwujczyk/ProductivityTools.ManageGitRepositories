@@ -19,6 +19,53 @@ Module also allow me to update all repositories from given directory.
 
 Check out detailed description of the commands below.
 
+## Pull-GitRepository
+Performs git pull for given directory. Following command will
+- open D:\GitHub\ProductivityTools.ConnectionString\ 
+- check if directory is git repository
+- perform git pull 
+- show message.
+
+```powershell
+PS C:\> Pull-GitRepository D:\GitHub\ProductivityTools.ConnectionString\
+```
+
+![PullGitRepository](./Images/PullGitRepository.png)
+
+
+## Pull-GitRepositories
+Iterates through list of directories under directory provided and invokes git pull for each repository.
+
+```powershell
+PS C:\> Pull-GitRepositories D:\GitHub\
+```
+![PullGitRepository](./Images/PullGitRepositories.png)
+
+## Push-GitRepository
+It will push changes to the repository. 
+
+It performs pushes changes to the rpeository. If current branch is ahead of remote, it pushes it, if you have currently not commited changes it creates AutoCommit branch and pushes all changes to it.
+
+```powershell
+PS C:\> Push-GitRepository -Directory D:\GitHub\ProductivityTools.ConnectionString\
+```
+
+It will go to that directory check if any changes are done and push them.
+
+![PullGitRepository](./Images/PushGitRepositoryDiagram.png)
+
+
+## Push-GitRepositories
+It iterates through directory and for each will invoke Push-GitRepository comdlet.
+It will open GitHub directory and foreach directory inside it will invoke Push-GitRepository
+
+```powershell
+PS C:\> Push-GitRepositories D:\GitHub\
+```
+
+It will open GitHub directory and foreach directory inside it will invoke Push-GitRepository
+
+
 ## Get-AutoCommitRepositories
 Shows all git repositories with auto created branch. It scans provided directory, founds git directories and check if AutoCommitBranch branch exists.
 
@@ -60,43 +107,8 @@ PS C:\> Get-GitRepositoryStatus D:\GitHub\ProductivityTools.ConnectionString\
 It will check if in the D:\GitHub\ProductivityTools.ConnectionString\ changes were done. 
 
 
-## Pull-GitRepositories
-It iterates through list of directories under directory provided and invokes git pull for each repository.
-
-```powershell
-PS C:\> Pull-GitRepositories D:\GitHub\
-```
-
-It will open GitHub directory and for each directory inside will invoke git pull
-
-## Pull-GitRepository
-It performs git pull for given directory.
-
-```powershell
-PS C:\> Pull-GitRepository D:\GitHub\ProductivityTools.ConnectionString\
-```
-
-It will open D:\GitHub\ProductivityTools.ConnectionString\ checks if directory is git repository, perform git pull and show message.
 
 
-## Push-GitRepositories
-It iterates through directory and for each will invoke Push-GitRepository comdlet.
-It will open GitHub directory and foreach directory inside it will invoke Push-GitRepository
-
-```powershell
-PS C:\> Push-GitRepositories D:\GitHub\
-```
-
-It will open GitHub directory and foreach directory inside it will invoke Push-GitRepository
-
-## Push-GitRepository
-It performs pushes changes to the rpeository. If current branch is ahead of remote, it pushes it, if you have currently not commited changes it creates AutoCommit branch and pushes all changes to it.
-
-```powershell
-PS C:\> Push-GitRepository -Directory D:\GitHub\ProductivityTools.ConnectionString\
-```
-
-It will go to that directory check if any changes are done and push them.
 
 
 

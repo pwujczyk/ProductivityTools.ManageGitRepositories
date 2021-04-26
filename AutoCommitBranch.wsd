@@ -1,0 +1,22 @@
+@startuml
+
+title Push-GitRepository
+
+
+start
+
+:Push-GitRepository; 
+
+if (Un-Pushed changes?) then (yes)
+  :git push;
+elseif (Un-commited changes) then (yes)
+    :git checkout -b "AutoCommitBranch";
+    :git add .;
+    :git commit -m "Automatic Commit";
+    :git push;
+else (no)
+endif
+
+stop
+
+@enduml
