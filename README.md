@@ -13,7 +13,11 @@
 # Manage Git repositories
 
 
-Module allows to manage multiple repositories at the same time. I am using it as a backup tool. Every day I am scanning my repositories and check if any of it has some uncommited changes. If yes, changes are pushed. If changes weren't staged, new *AutoCommitBranch* branch is created and data is pushed there.
+Module allows to manage multiple repositories at the same time. I am using it as a backup tool. 
+
+<!--more-->
+
+Every day I am scanning my repositories and check if any of it has some uncommited changes. If yes, changes are pushed. If changes weren't staged, new *AutoCommitBranch* branch is created and data is pushed there.
 
 Module also allow me to update all repositories from given directory.
 
@@ -45,7 +49,7 @@ Pull-GitRepositories D:\GitHub\
 It pushes changes to the Git repository. If current branch is ahead of remote, it will push it, if changes are not commited it will create AutoCommit branch and push all changes to it.
 
 
-
+<!--og-image-->
 ![Push-GitRepository](./Images/PushGitRepositoryDiagram.png)
 
 ```powershell
