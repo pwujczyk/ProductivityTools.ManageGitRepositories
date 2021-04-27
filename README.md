@@ -42,9 +42,7 @@ PS C:\> Pull-GitRepositories D:\GitHub\
 ![PullGitRepository](./Images/PullGitRepositories.png)
 
 ## Push-GitRepository
-It will push changes to the repository. 
-
-It performs pushes changes to the rpeository. If current branch is ahead of remote, it pushes it, if you have currently not commited changes it creates AutoCommit branch and pushes all changes to it.
+It pushes changes to the Git repository. If current branch is ahead of remote, it will push it, if changes are not commited it will create AutoCommit branch and push all changes to it.
 
 ```powershell
 PS C:\> Push-GitRepository -Directory D:\GitHub\ProductivityTools.ConnectionString\
