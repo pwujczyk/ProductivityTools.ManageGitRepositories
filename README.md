@@ -37,72 +37,72 @@ PS C:\> Pull-GitRepository D:\GitHub\ProductivityTools.ConnectionString\
 Iterates through list of directories under directory provided and invokes git pull for each repository.
 
 ```powershell
-PS C:\> Pull-GitRepositories D:\GitHub\
+Pull-GitRepositories D:\GitHub\
 ```
-![PullGitRepository](./Images/PullGitRepositories.png)
+![Pull-GitRepositories](./Images/PullGitRepositories.png)
 
 ## Push-GitRepository
 It pushes changes to the Git repository. If current branch is ahead of remote, it will push it, if changes are not commited it will create AutoCommit branch and push all changes to it.
 
+
+
+![Push-GitRepository](./Images/PushGitRepositoryDiagram.png)
+
 ```powershell
-PS C:\> Push-GitRepository -Directory D:\GitHub\ProductivityTools.ConnectionString\
+Push-GitRepository -Directory D:\GitHub\ProductivityTools.ConnectionString\
 ```
-
-It will go to that directory check if any changes are done and push them.
-
-![PullGitRepository](./Images/PushGitRepositoryDiagram.png)
-
+![Push-GitRepository](./Images/PushGitRepository.png)
 
 ## Push-GitRepositories
-It iterates through directory and for each will invoke Push-GitRepository comdlet.
-It will open GitHub directory and foreach directory inside it will invoke Push-GitRepository
+It iterates through given directory and for each directory inside it will invoke Push-GitRepository cmdlet.
 
 ```powershell
-PS C:\> Push-GitRepositories D:\GitHub\
+Push-GitRepositories D:\GitHub\
 ```
 
 It will open GitHub directory and foreach directory inside it will invoke Push-GitRepository
 
-
-## Get-AutoCommitRepositories
-Shows all git repositories with auto created branch. It scans provided directory, founds git directories and check if AutoCommitBranch branch exists.
-
-```powershell
-PS C:\> Get-AutoCommitRepositories -Directory D:\GitHub\
-```
-
-This will look for all directories in D:\GitHub path. For each directory it will check if it is git repository and it will show information if AutoCommitBranch exists or not.
+![Push-GitRepositories](./Images/PushGitRepositories.png)
 
 ## Get-AutoCommitRepository
 
-Displays information if git repository contains AutoCommitBranch branch. Displays information if git repository contains AutoCommitBranch branch. It is used just as information.
+Checks if git repository contains AutoCommitBranch branch. 
 
 ```powershell
-PS C:\> Get-AutoCommitRepository D:\GitHub\ProductivityTools.Meetings\
+Get-AutoCommitRepository D:\GitHub\ProductivityTools.Meetings\
 ```
+![Get-AutoCommitRepository](./Images/GetAutoCommitRepository.png)
 
-It will check the directory D:\GitHub\ProductivityTools.Meetings\ and display information if it is git repository and next if this git reposiotry has AutoCommitBranch branch.
 
-
-## Get-GitRepositoriesStatus
-It checks if repositories in directory have something to commit. It opens directories in provided path, checks if it git repository and checks if repository has something to commit.
+## Get-AutoCommitRepositories
+Iterates through all git repositories inside provided directory and invokes Get-AutoCommitRepository for each.
 
 ```powershell
-PS C:\> Get-GitRepositoriesStatus -Directory D:\GitHub\
+Get-AutoCommitRepositories -Directory D:\GitHub\
 ```
 
-It will iterate through directories in d:\GitHub and for each directory it will check if something to commit exists.
-
+![Get-AutoCommitRepositories](./Images/GetAutoCommitRepositories.png)
 
 
 ## Get-GitRepositoryStatus
-Check if given repository something is to be commited. It opens the directory and checks if in given repository some changes were done which should be commited.
+Checks if given repository has something to be commited.
 
 ```powershell
-PS C:\> Get-GitRepositoryStatus D:\GitHub\ProductivityTools.ConnectionString\
+Get-GitRepositoryStatus D:\GitHub\ProductivityTools.ConnectionString\
 ```
 
-It will check if in the D:\GitHub\ProductivityTools.ConnectionString\ changes were done. 
+![Get-GitRepositoryStatus](./Images/GetGitRepositoryStatus.png)
+
+
+## Get-GitRepositoriesStatus
+Iterates through all git repositories inside provided directory and invokes Get-GitRepositoryStatus for each.
+
+```powershell
+Get-GitRepositoriesStatus -Directory D:\GitHub\
+```
+![Get-GitRepositoriesStatus](./Images/GetGitRepositoriesStatus.png)
+
+
 
 
 
