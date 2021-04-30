@@ -13,23 +13,23 @@
 # Manage Git repositories
 
 
-Module allows to manage multiple repositories at the same time. I am using it as a backup tool. 
+The module allows managing multiple repositories at the same time. I am using it as a backup tool. 
 
 <!--more-->
 
-Every day I am scanning my repositories and check if any of it has some uncommited changes. If yes, changes are pushed. If changes weren't staged, new *AutoCommitBranch* branch is created and data is pushed there.
+Every day I am scanning my repositories and check if any of them has some uncommitted changes. If yes, changes are pushed. If changes weren't staged, a new *AutoCommitBranch* branch is created and data is pushed there.
 
-Module also allow me to update all repositories from given directory.
+The module also allows me to update all repositories from the given directory.
 
-Check out detailed description of the commands below.
+Check out the detailed description of the commands below.
 
 ## Pull-GitRepository
 
-Performs git pull for given directory. Following command will
+Performs git pull for a given directory. Following command will
 
 - open `D:\GitHub\ProductivityTools.ConnectionString\`
-- check if directory is git repository
-- perform git pull 
+- check if the directory is the git repository
+- perform a git pull 
 - show message.
 
 ```powershell
@@ -40,7 +40,7 @@ Pull-GitRepository D:\GitHub\ProductivityTools.ConnectionString\
 
 
 ## Pull-GitRepositories
-Iterates through list of directories under directory provided and invokes git pull for each repository.
+Iterates through the list of directories under the directory provided and invokes git pull for each repository.
 
 ```powershell
 Pull-GitRepositories D:\GitHub\
@@ -48,7 +48,7 @@ Pull-GitRepositories D:\GitHub\
 ![Pull-GitRepositories](./Images/PullGitRepositories.png)
 
 ## Push-GitRepository
-It pushes changes to the Git repository. If current branch is ahead of remote, it will push it, if changes are not commited it will create AutoCommit branch and push all changes to it.
+It pushes changes to the Git repository. If the current branch is ahead of the remote, it will push it, if changes are not committed it will create AutoCommit branch and push all changes to it.
 
 
 <!--og-image-->
@@ -66,7 +66,7 @@ It iterates through given directory and for each directory inside it will invoke
 Push-GitRepositories D:\GitHub\
 ```
 
-It will open GitHub directory and foreach directory inside it will invoke Push-GitRepository
+It will open GitHub directory and for each directory inside it will invoke Push-GitRepository
 
 ![Push-GitRepositories](./Images/PushGitRepositories.png)
 
@@ -81,7 +81,7 @@ Get-AutoCommitRepository D:\GitHub\ProductivityTools.Meetings\
 
 
 ## Get-AutoCommitRepositories
-Iterates through all git repositories inside provided directory and invokes Get-AutoCommitRepository for each.
+Iterates through all git repositories inside a provided directory and invoke Get-AutoCommitRepository for each.
 
 ```powershell
 Get-AutoCommitRepositories -Directory D:\GitHub\
@@ -91,7 +91,7 @@ Get-AutoCommitRepositories -Directory D:\GitHub\
 
 
 ## Get-GitRepositoryStatus
-Checks if given repository has something to be commited.
+Checks if the given repository has something to be committed.
 
 ```powershell
 Get-GitRepositoryStatus D:\GitHub\ProductivityTools.ConnectionString\
@@ -101,7 +101,7 @@ Get-GitRepositoryStatus D:\GitHub\ProductivityTools.ConnectionString\
 
 
 ## Get-GitRepositoriesStatus
-Iterates through all git repositories inside provided directory and invokes Get-GitRepositoryStatus for each.
+Iterates through all git repositories inside provided directory and invoke Get-GitRepositoryStatus for each.
 
 ```powershell
 Get-GitRepositoriesStatus -Directory D:\GitHub\
