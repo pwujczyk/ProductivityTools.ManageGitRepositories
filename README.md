@@ -1,7 +1,7 @@
 <!--Category:PowerShell--> 
  <p align="right">
     <a href="https://www.powershellgallery.com/packages/ProductivityTools.ManageGitRepositories/"><img src="Images/Header/Powershell_border_40px.png" /></a>
-    <a href="http://productivitytools.tech/clone-git-repositories/"><img src="Images/Header/ProductivityTools_green_40px_2.png" /><a> 
+    <a href="http://productivitytools.tech/manage-git-repositories/"><img src="Images/Header/ProductivityTools_green_40px_2.png" /><a> 
     <a href="https://github.com/pwujczyk/ProductivityTools.ManageGitRepositories"><img src="Images/Header/Github_border_40px.png" /></a>
 </p>
 <p align="center">
@@ -24,14 +24,16 @@ Module also allow me to update all repositories from given directory.
 Check out detailed description of the commands below.
 
 ## Pull-GitRepository
+
 Performs git pull for given directory. Following command will
-- open D:\GitHub\ProductivityTools.ConnectionString\ 
+
+- open `D:\GitHub\ProductivityTools.ConnectionString\`
 - check if directory is git repository
 - perform git pull 
 - show message.
 
 ```powershell
-PS C:\> Pull-GitRepository D:\GitHub\ProductivityTools.ConnectionString\
+Pull-GitRepository D:\GitHub\ProductivityTools.ConnectionString\
 ```
 
 ![PullGitRepository](./Images/PullGitRepository.png)
