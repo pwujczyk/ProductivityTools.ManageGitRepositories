@@ -18,6 +18,7 @@ function CheckIfGitRepository()
 	}
 }
 
+
 function Push-GitRepository()
 {
 	Param(
@@ -56,6 +57,32 @@ function Push-GitRepositories([string] $Directory)
 {
 	PerformSingleActiononDirectory $Directory  {Param($x) Push-GitRepository $x}
 }
+
+function Commit-GitRepository()
+{
+	[cmdletbinding()]
+	Param(
+		[string]$Directory,
+		
+		[Parameter(Mandatory=$true)]
+		[string]$Message
+	)
+	Write-Verbose "Hello"
+	git add .
+	git commit -m "$message"
+}
+
+function Commit-GitRepositories()
+{
+	[cmdletbinding()]
+	Param(
+	[string] $Directory,
+	[string]$Message
+	)
+	Write-Verhbose "Hello"
+	PerformSingleActiononDirectory $Directory  {Param($x) Push-GitRepository $x}
+}
+
 
 function Get-AutoCommitRepository()
 {
@@ -146,6 +173,8 @@ function Get-GitRepositoriesStatus()
 	PerformSingleActiononDirectory $Directory  {Param($x) Get-GitRepositoryStatus $x}
 }
 
+Export-ModuleMember Commit-GitRepository
+Export-ModuleMember Commit-GitRepositories
 Export-ModuleMember Push-GitRepository
 Export-ModuleMember Push-GitRepositories
 Export-ModuleMember Get-AutoCommitRepository
