@@ -69,8 +69,13 @@ function Commit-GitRepository()
 	)
 	Write-Verbose "Hello"
 	Write-Verbose "Directory: $Directory"
+	Push-Location
+
+	cd $Directory
+	CheckIfGitRepository
 	git add .
 	git commit -m "$message"
+	Pop-Location
 }
 
 function Commit-GitRepositories()
