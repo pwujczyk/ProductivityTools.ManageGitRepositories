@@ -68,6 +68,7 @@ function Commit-GitRepository()
 		[string]$Message
 	)
 	Write-Verbose "Hello"
+	Write-Verbose "Directory: $Directory"
 	git add .
 	git commit -m "$message"
 }
