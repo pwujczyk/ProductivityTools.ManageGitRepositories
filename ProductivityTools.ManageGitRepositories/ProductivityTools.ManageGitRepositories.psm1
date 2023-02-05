@@ -79,8 +79,8 @@ function Commit-GitRepositories()
 	[string] $Directory,
 	[string]$Message
 	)
-	Write-Verhbose "Hello"
-	PerformSingleActiononDirectory $Directory  {Param($x) Push-GitRepository $x}
+	Write-Verbose "Hello"
+	PerformSingleActiononDirectory $Directory  {Param($x) Commit-GitRepository $x}
 }
 
 
