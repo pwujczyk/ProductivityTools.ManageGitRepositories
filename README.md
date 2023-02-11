@@ -110,7 +110,21 @@ Get-GitRepositoriesStatus -Directory D:\GitHub\
 
 
 
+## Commit-GitRepository
 
+Adds all changes with ``git add . `` command. Commit the changes with message
+
+```powershell
+Commit-GitRepository -Directory d:\Github\GithubRepo -Message "Important Commit"
+```
+
+## Commit-GitRepositories
+
+Performs ``Commit-GitRepository`` on each directory in the provided directory
+
+```powershell
+Commit-GitRepositories -Directory D:\Github -Message "Multiple repos will be commited with the same message"
+```
 
 
 
