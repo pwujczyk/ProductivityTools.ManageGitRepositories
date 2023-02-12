@@ -38,7 +38,9 @@ FunctionsToExport = @(
 	,'Get-GitRepositoryStatus'
 	,'Get-GitRepositoriesStatus',
     'Commit-GitRepositories'
-    'Commit-GitRepository')
+    'Commit-GitRepository',
+    'CommitPush-GitRepository',
+    'CommitPush-GitRepositories')
 
 PrivateData = @{
 

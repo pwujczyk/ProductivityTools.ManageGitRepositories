@@ -89,6 +89,35 @@ function Commit-GitRepositories()
 	PerformSingleActiononDirectory $Directory  {Param($directory) Commit-GitRepository $directory "$Message"}
 }
 
+function CommitPush-GitRepository()
+{
+	[cmdletbinding()]
+	Param(
+		[string]$Directory= $(Get-Location),
+		
+		[Parameter(Mandatory=$true)]
+		[string]$Message
+	)
+
+	Commit-GitRepository -Directory $Directory -Message $Message
+	Push-GitRepository -Directory $Directory
+}
+
+function CommitPush-GitRepositories()
+{
+	[cmdletbinding()]
+	Param(
+		[string]$Directory,
+		
+		[Parameter(Mandatory=$true)]
+		[string]$Message
+	)
+
+	Write-Verbose "Hello"
+	PerformSingleActiononDirectory $Directory  {Param($directory) Commit-GitRepository $directory "$Message"}
+	PerformSingleActiononDirectory $Directory  {Param($x) Push-GitRepository $x}
+}
+
 
 function Get-AutoCommitRepository()
 {
@@ -189,3 +218,5 @@ Export-ModuleMember Pull-GitRepository
 Export-ModuleMember Pull-GitRepositories
 Export-ModuleMember Get-GitRepositoryStatus
 Export-ModuleMember Get-GitRepositoriesStatus
+Export-ModuleMember CommitPush-GitRepository
+Export-ModuleMember CommitPush-GitRepositories
