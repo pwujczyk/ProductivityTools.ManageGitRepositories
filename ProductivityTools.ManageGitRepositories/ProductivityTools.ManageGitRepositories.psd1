@@ -56,7 +56,7 @@ PrivateData = @{
         ProjectUri = 'http://productivitytools.tech/manage-git-repositories/'
 
         # A URL to an icon representing this module.
-        IconUri = 'http://cdn.productivitytools.tech/images/PT/ProductivityTools_blue_85px_3.png'
+        IconUri = 'https://ptblogstorage.blob.core.windows.net/images/PT/ProductivityTools_blue_85px_4.png'
 
         # ReleaseNotes of this module
         # ReleaseNotes = ''
