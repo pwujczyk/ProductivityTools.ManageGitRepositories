@@ -23,7 +23,7 @@ function Push-GitRepository()
 {
 	Param(
 	[Parameter(Mandatory=$true)]
-	[string] $Directory
+	[string] $Directory= $(Get-Location)
 	)
 
 	Push-Location
@@ -62,10 +62,11 @@ function Commit-GitRepository()
 {
 	[cmdletbinding()]
 	Param(
-		[string]$Directory,
-		
+			
 		[Parameter(Mandatory=$true)]
-		[string]$Message
+		[string]$Message,
+
+		[string]$Directory= $(Get-Location)
 	)
 	Write-Verbose "Hello"
 	Write-Verbose "Directory: $Directory"
@@ -82,8 +83,10 @@ function Commit-GitRepositories()
 {
 	[cmdletbinding()]
 	Param(
-	[string] $Directory,
-	[string]$Message
+	[Parameter(Mandatory=$true)]
+	[string]$Message,
+	[string] $Directory= $(Get-Location)
+	
 	)
 	Write-Verbose "Hello"
 	PerformSingleActiononDirectory $Directory  {Param($directory) Commit-GitRepository $directory "$Message"}
@@ -93,10 +96,11 @@ function CommitPush-GitRepository()
 {
 	[cmdletbinding()]
 	Param(
-		[string]$Directory= $(Get-Location),
-		
+			
 		[Parameter(Mandatory=$true)]
-		[string]$Message
+		[string]$Message,
+
+		[string]$Directory= $(Get-Location)
 	)
 
 	Commit-GitRepository -Directory $Directory -Message $Message
@@ -106,11 +110,11 @@ function CommitPush-GitRepository()
 function CommitPush-GitRepositories()
 {
 	[cmdletbinding()]
-	Param(
-		[string]$Directory,
-		
+	Param(		
 		[Parameter(Mandatory=$true)]
-		[string]$Message
+		[string]$Message,
+
+		[string]$Directory= $(Get-Location)
 	)
 
 	Write-Verbose "Hello"
@@ -123,7 +127,7 @@ function Get-AutoCommitRepository()
 {
 	Param(
 	[Parameter(Mandatory=$true)]
-	[string] $Directory
+	[string] $Directory= $(Get-Location)
 	)
 	
 	cd $Directory
@@ -144,7 +148,7 @@ function Get-AutoCommitRepositories()
 {
 	Param(
 	[Parameter(Mandatory=$true)]
-	[string] $Directory
+	[string] $Directory= $(Get-Location)
 	)
 	
 	PerformSingleActiononDirectory $Directory  {Param($x) Get-AutoCommitRepository $x}
@@ -154,7 +158,7 @@ function Pull-GitRepository()
 {
 	Param(
 	[Parameter(Mandatory=$true)]
-	[string] $Directory
+	[string] $Directory= $(Get-Location)
 	)
 
 	Push-Location
@@ -182,7 +186,7 @@ function Get-GitRepositoryStatus()
 {
 	Param(
 	[Parameter(Mandatory=$true)]
-	[string] $Directory
+	[string] $Directory= $(Get-Location)
 	)
 	
 	Push-Location
@@ -203,7 +207,7 @@ function Get-GitRepositoriesStatus()
 {
 	Param(
 	[Parameter(Mandatory=$true)]
-	[string] $Directory
+	[string] $Directory= $(Get-Location)
 	)
 	PerformSingleActiononDirectory $Directory  {Param($x) Get-GitRepositoryStatus $x}
 }
