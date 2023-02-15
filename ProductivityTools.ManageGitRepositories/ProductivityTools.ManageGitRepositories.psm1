@@ -22,8 +22,7 @@ function CheckIfGitRepository()
 function Push-GitRepository()
 {
 	Param(
-	[Parameter(Mandatory=$true)]
-	[string] $Directory= $(Get-Location)
+		[string] $Directory= $(Get-Location)
 	)
 
 	Push-Location
@@ -126,8 +125,7 @@ function CommitPush-GitRepositories()
 function Get-AutoCommitRepository()
 {
 	Param(
-	[Parameter(Mandatory=$true)]
-	[string] $Directory= $(Get-Location)
+		[string] $Directory= $(Get-Location)
 	)
 	
 	cd $Directory
@@ -147,8 +145,7 @@ function Get-AutoCommitRepository()
 function Get-AutoCommitRepositories()
 {
 	Param(
-	[Parameter(Mandatory=$true)]
-	[string] $Directory= $(Get-Location)
+		[string] $Directory= $(Get-Location)
 	)
 	
 	PerformSingleActiononDirectory $Directory  {Param($x) Get-AutoCommitRepository $x}
@@ -157,8 +154,7 @@ function Get-AutoCommitRepositories()
 function Pull-GitRepository()
 {
 	Param(
-	[Parameter(Mandatory=$true)]
-	[string] $Directory= $(Get-Location)
+		[string] $Directory= $(Get-Location)
 	)
 
 	Push-Location
