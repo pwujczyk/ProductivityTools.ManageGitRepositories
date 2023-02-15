@@ -12,7 +12,7 @@
 RootModule = 'ProductivityTools.ManageGitRepositories.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.0.14'
+ModuleVersion = '0.0.15'
 
 # ID used to uniquely identify this module
 GUID = '29befbab-71c7-422b-a837-e99303f08761'
