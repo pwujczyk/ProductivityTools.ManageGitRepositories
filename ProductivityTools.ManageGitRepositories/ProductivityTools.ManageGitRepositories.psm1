@@ -82,13 +82,13 @@ function Commit-GitRepositories()
 {
 	[cmdletbinding()]
 	Param(
-	[Parameter(Mandatory=$true)]
-	[string]$Message,
-	[string] $Directory= $(Get-Location)
+		[Parameter(Mandatory=$true)]
+		[string]$Message,
+		[string] $Directory= $(Get-Location)
 	
 	)
 	Write-Verbose "Hello"
-	PerformSingleActiononDirectory $Directory  {Param($directory) Commit-GitRepository $directory "$Message"}
+	PerformSingleActiononDirectory $Directory  {Param($directory) Commit-GitRepository "$Message" $directory }
 }
 
 function CommitPush-GitRepository()
