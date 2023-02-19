@@ -181,8 +181,7 @@ function Pull-GitRepositories([string] $Directory)
 function Get-GitRepositoryStatus()
 {
 	Param(
-	[Parameter(Mandatory=$true)]
-	[string] $Directory= $(Get-Location)
+		[string] $Directory= $(Get-Location)
 	)
 	
 	Push-Location
@@ -202,8 +201,8 @@ function Get-GitRepositoryStatus()
 function Get-GitRepositoriesStatus()
 {
 	Param(
-	[Parameter(Mandatory=$true)]
-	[string] $Directory= $(Get-Location)
+		[Parameter(Mandatory=$false)]
+		[string] $Directory= $(Get-Location)
 	)
 	PerformSingleActiononDirectory $Directory  {Param($x) Get-GitRepositoryStatus $x}
 }
