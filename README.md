@@ -101,10 +101,11 @@ Get-GitRepositoryStatus D:\GitHub\ProductivityTools.ConnectionString\
 
 
 ## Get-GitRepositoriesStatus
-Iterates through all git repositories inside provided directory and invoke Get-GitRepositoryStatus for each.
+Iterates through all git repositories inside provided directory and invoke Get-GitRepositoryStatus for each. Use -OnlyDirty switch to display only repositories with uncommitted changes.
 
 ```powershell
 Get-GitRepositoriesStatus -Directory D:\GitHub\
+Get-GitRepositoriesStatus -Directory D:\GitHub\ -OnlyDirty
 ```
 ![Get-GitRepositoriesStatus](./Images/GetGitRepositoriesStatus.png)
 

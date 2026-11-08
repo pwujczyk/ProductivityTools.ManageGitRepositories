@@ -180,8 +180,13 @@ function Pull-GitRepositories([string] $Directory)
 
 function Get-GitRepositoryStatus()
 {
+	[cmdletbinding()]
 	Param(
-		[string] $Directory= $(Get-Location)
+		[Parameter(Position=0, Mandatory=$false)]
+		[string] $Directory= $(Get-Location),
+
+		[Parameter(Mandatory=$false)]
+		[switch] $OnlyDirty
 	)
 	
 	Push-Location
@@ -190,21 +195,29 @@ function Get-GitRepositoryStatus()
 	$status=git status -u
 	if ($status -contains "nothing to commit, working tree clean")
 	{
-		Write-Host "Git repository $directoryPath - working tree clean" -ForegroundColor Green
+		if (-not $OnlyDirty)
+		{
+			Write-Host "Git repository $Directory - working tree clean" -ForegroundColor Green
+		}
 	}
 	else
 	{
-		Write-Host "Git repository $directoryPath - dirty" -ForegroundColor Red
+		Write-Host "Git repository $Directory - dirty" -ForegroundColor Red
 	}
+	Pop-Location
 }
 
 function Get-GitRepositoriesStatus()
 {
+	[cmdletbinding()]
 	Param(
+		[Parameter(Position=0, Mandatory=$false)]
+		[string] $Directory= $(Get-Location),
+
 		[Parameter(Mandatory=$false)]
-		[string] $Directory= $(Get-Location)
+		[switch] $OnlyDirty
 	)
-	PerformSingleActiononDirectory $Directory  {Param($x) Get-GitRepositoryStatus $x}
+	PerformSingleActiononDirectory $Directory  {Param($x) Get-GitRepositoryStatus -Directory $x -OnlyDirty:$OnlyDirty}
 }
 
 Export-ModuleMember Commit-GitRepository
