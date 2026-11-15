@@ -39,6 +39,10 @@ function Push-GitRepository()
 	{
 		Write-Host "Git repository $directoryPath - working tree clean" -ForegroundColor Green
 	}
+	elseif ($status -contains 'nothing to commit (create/copy files and use "git add" to track)')
+	{
+		Write-Host "Git repository $directoryPath - empty" -ForegroundColor Green
+	}
 	else
 	{
 		Write-Host "Git repository $directoryPath - dirty, pushing" -ForegroundColor Red
@@ -198,6 +202,13 @@ function Get-GitRepositoryStatus()
 		if (-not $OnlyDirty)
 		{
 			Write-Host "Git repository $Directory - working tree clean" -ForegroundColor Green
+		}
+	}
+	elseif ($status -contains 'nothing to commit (create/copy files and use "git add" to track)')
+	{
+		if (-not $OnlyDirty)
+		{
+			Write-Host "Git repository $Directory - empty" -ForegroundColor Green
 		}
 	}
 	else
